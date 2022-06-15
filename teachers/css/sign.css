@@ -1,0 +1,93 @@
+body{
+    font-family: sans-serif;
+    background-image: linear-gradient(rgb(41, 36, 36),rgba(224, 202, 202, 0)),url(../images/lbg2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.container
+{
+margin: auto;
+width: 500px;
+background-color:rgba(109, 122, 238, 0.1);
+border-radius: 25px;
+margin-top: 5%;
+box-shadow: 0 0 15px black;
+}
+.header
+{
+    text-align: center;
+    padding-top: 75px;
+}
+.header h1{
+    color: rgb(229, 219, 255);
+    font-size: 45px;
+    margin-bottom: 80px;
+
+}
+.main
+{
+    text-align: center;
+}
+.main h4{
+    color: aliceblue;
+}
+.main input::placeholder{
+    color: black;
+    
+}
+
+
+.main input{
+    width: 300px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background-color: rgba(253, 253, 253, 0.1);
+    margin-bottom: 20px;
+}
+.main button
+{
+    width: 200px;
+    height: 40px;
+    padding-left: 0;
+    background-color:rgba(235, 183, 104, 0.603);
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 20px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+
+
+}
+.main button:hover{
+    box-shadow: 2px 2px 5px rgb(19, 7, 7);
+    background-color: rgb(255, 232, 169);
+}
+
+.main input:hover{
+    box-shadow: 2px 2px 5px rgb(19, 7, 7);
+
+}
+
+.main span{
+    position: relative;
+}
+.main i{
+    position: absolute;
+    left: 15px;
+    color: #333;
+    font-size: 16px;
+    top: 2px;
+}

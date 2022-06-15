@@ -1,0 +1,108 @@
+ body {
+    /* background-image: url(../images/bg2.jpg); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: auto;
+    padding: 0px;
+    
+}
+
+.left {
+    /* border: 1px solid green; */
+     display: inline-block;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 10%;
+    text-align: center;
+}
+.left img {
+    border-radius: 200px;
+    height: 8vh;
+    padding-top: 2%;
+}
+.left b {
+    font-family: Gabriola;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 5%;
+}
+.mid {
+    border-radius: 20px;
+    display: block;
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px 40px;
+    background-color: rgba(95, 92, 67, 0.26);
+    
+}
+.navbar li {
+    display: inline-block;
+}
+.navbar a {
+    color: rgb(245, 245, 245);
+    text-decoration: none;
+    padding: 24px 20px;
+}
+.navbar a:hover {
+    color: rgba(131, 253, 253, 0.76);
+}
+.navbar i {
+    font-size: 18px;
+}
+.navbar b {
+    font-family: Helvetica Narrow, sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.right {
+    position: absolute;
+    display: inline-block;
+    right: 34px;
+    top: 20px;
+}
+.right button {
+    background-color: rgba(255, 20, 20, 0.541);
+    color: aliceblue;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+.right button:hover {
+    background-color: rgb(192, 147, 62);
+}
+.content h1{
+    color: rgba(218, 255, 243, 0.836);
+    text-align: center;
+}
+.content table{
+    margin:2px 100px;
+    width:90%;
+}
+.form h2{
+    color: beige;
+    text-align: center;
+}
+ #row{
+    border:2px solid rgb(255, 252, 252);
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 10px 10px;
+    border-radius: 12px;
+
+}
+#row input{
+    width: 85%;
+    background-color: rgba(255, 255, 255, 0);
+}
+#row .form-select{
+    width: 65%;
+    background-color: rgba(255, 255, 255, 0);
+}

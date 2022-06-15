@@ -1,0 +1,50 @@
+body{
+
+    height: 100vh;
+    background-image:linear-gradient(rgb(0,0,0,0),rgb(0,0,0,0)),url(../images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+    
+}
+h1{
+    margin-left: 2%;
+    font-size: 70px;
+    color: azure;
+    margin-top: 2%;
+}
+.box{
+    float: left;
+margin-top: 10%;
+margin-left: 15%;
+
+}
+ #box1{
+   box-shadow: 0px 0px 10px 10px rgba(248, 248, 248, 0.863);
+    display: block;
+    width: 25%;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(33, 66, 14);
+    
+}
+#box1:hover{
+   cursor: pointer;
+    box-shadow: 0px 1px 8px 9px rgb(33, 66, 30);
+}
+#box2:hover{
+    cursor: pointer;
+     box-shadow: 0px 1px 8px 9px rgb(33, 66, 30);
+ }
+.box a{
+    text-decoration: none;
+    color: white;
+    font-size: 40px;
+}
+#box2{
+    box-shadow: 0px 0px 10px 10px rgba(248, 248, 248, 0.863);
+    display: block;
+    width: 25%;
+    padding: 40px;
+    text-align: center;
+    background-color: rgb(18, 31, 71);
+}
