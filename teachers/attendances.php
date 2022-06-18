@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,7 +96,7 @@
 
     ul li ul {
         background-color: #34495e;
-        width:200% ;
+        width: 200%;
         visibility: hidden;
         opacity: 0;
         position: absolute;
@@ -109,7 +108,7 @@
     ul li:hover>ul,
     ul li ul:hover {
         visibility: visible;
-        
+
         opacity: 1;
         display: block;
 
@@ -177,29 +176,28 @@
         }
 
     }
+
     table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 70%;
-  margin-top: 1%;
-  margin-left: 13%;
- 
-}
-th{
-background-color: #34495e;
-color: white;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 70%;
+        margin-top: 1%;
+        margin-left: 13%;
 
-}
+    }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+    th {
+        background-color: #34495e;
+        color: white;
 
+    }
 
-    
-    
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
 </style>
 
 <body>
@@ -214,7 +212,7 @@ td, th {
                     <li><a href="addstudent.php">Add Student</a></li>
                 </ul>
             </li>
-            
+
             <li><a style="right: 20px;" href="attendances.php">attendence</a></li>
             <li><a style="right: 20px;" href="Report.php">report</a></li>
             <li><a style="right: 20px;" href="logout.php">Logout</a></li>
@@ -225,125 +223,124 @@ td, th {
             <i class="fas fa-bars"></i>
         </label>
     </nav>
-   
-        <h2 style="text-align: center; margin-top: 10px;">attendance <?php echo date('Y-m-d') ?></h2>
+
+    <h2 style="text-align: center; margin-top: 10px;">attendance <?php echo date('Y-m-d') ?></h2>
 
 
-        <label style="text-align: center; margin-left:42%; margin-top:10px;" for="">select subject</label>
+    <label style="text-align: center; margin-left:42%; margin-top:10px;" for="">select subject</label>
 
-        <select style="text-align: center; " name="course1" onchange="amit()" id="">
+    <select style="text-align: center; " name="course1" onchange="amit()" id="">
         <option value="">Subjects</option>
-            <option value="np">Network programming</option>
-            <option value="ds">Distributed system</option>
-            <option value="aj">Advance Java</option>
-            <option value="mp">Mobile programming</option>
-            <option value="ae">Applied Economics</option>
-        </select>
+        <option value="np">Network programming</option>
+        <option value="ds">Distributed system</option>
+        <option value="aj">Advance Java</option>
+        <option value="mp">Mobile programming</option>
+        <option value="ae">Applied Economics</option>
+    </select>
+    <table>
         <table>
-        <table>
-  <tr>
-    <th>roll no</th>
-    <th>Name</th>
-    <th>email</th> 
-    <th>address</th>
-    <th>action</th>
+            <tr>
+                <th>roll no</th>
+                <th>Name</th>
+                <th>email</th>
+                <th>address</th>
+                <th>action</th>
 
-  </tr>
+            </tr>
             <tbody>
                 <?php
                 include 'db.php';
                 //  $selectquery = "select str.*, sr.sub_name, ar.status from attendance str , subject sr, attendances ar where  str.std_id=ar.status";
                 $selectquery =  "select * from students";
-                             
+
 
                 $query = mysqli_query($con, $selectquery);
                 while ($res = mysqli_fetch_array($query)) {
-                
+
                 ?>
                     <tr>
-    <td><?php echo $res['std_id'] ?></td>
-    <td><?php echo $res['std_name'] ?></td>
-    <td><?php echo $res['std_email'] ?></td>   
-    <td><?php echo $res['std_address'] ?></td>
-    <td>
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="attendance" >
-                            <label for="">present</label>
-                            <input type="radio" name="status" value="present" require>
-                            <label for="">absent</label>
-                            <input type="radio" name="status" value="absent" require>
-                            <input type="hidden" name="std_id" value="<?php echo $res['std_id']?>">
-                            <input type="hidden" name="course">
-                            <input style=" width:100px; height:30px; background-color:#34495e;color:white; border-radius:5px;" type="submit" name="atn" value="save">
-                            
-                           
+                        <td><?php echo $res['std_id'] ?></td>
+                        <td><?php echo $res['std_name'] ?></td>
+                        <td><?php echo $res['std_email'] ?></td>
+                        <td><?php echo $res['std_address'] ?></td>
+                        <td>
+                            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="attendance">
+                                <label for="">present</label>
+                                <input type="radio" name="status" value="present" require>
+                                <label for="">absent</label>
+                                <input type="radio" name="status" value="absent" require>
+                                <input type="hidden" name="std_id" value="<?php echo $res['std_id'] ?>">
+                                <input type="hidden" name="course">
+                                <input style=" width:100px; height:30px; background-color:#34495e;color:white; border-radius:5px;" type="submit" name="atn" value="save">
 
-                            
+
+
+
                             </form>
                             <script>
-                                function amit(){
-                                var subPost = document.getElementsByName("course1")[0].value;
-                                var subject = document.getElementsByName('course');
-                                subject.forEach(function(e,index){
-                                    subject[index].value = subPost;
+                                function amit() {
+                                    var subPost = document.getElementsByName("course1")[0].value;
+                                    var subject = document.getElementsByName('course');
+                                    subject.forEach(function(e, index) {
+                                        subject[index].value = subPost;
 
-                                });
-                              }
+                                    });
+                                }
                             </script>
 
-        </td>
+                        </td>
 
 
 
-  
-                    
-                <?php
+
+
+                    <?php
                 }
 
-                ?>
+                    ?>
             </tbody>
         </table>
-        
-    </div>
-    </div>
-    </div>
+
+        </div>
+        </div>
+        </div>
 
 
 
 
 
-    <script src="https://kit.fontawesome.com/30e2cd6711.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#icon').click(function() {
-                $('ul').toggleClass('show')
+        <script src="https://kit.fontawesome.com/30e2cd6711.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#icon').click(function() {
+                    $('ul').toggleClass('show')
+                })
             })
-        })
-    </script>
+        </script>
 
-<?php
+        <?php
 
-include('db.php');
+        include('db.php');
 
 
-if(isset($_POST['atn'])) {
-    $subject = @$_POST['course'];
-    $date = date('Y-m-d');
-    $status = @$_POST['status'];
-    $stdId = $_POST['std_id'];
-    if(!empty($subject) && !empty($status)){
-        $q = "INSERT INTO attendances(course,status,date,student_id) VALUES('$subject','$status','$date','$stdId')";
-         mysqli_query($con,$q);
-        echo "<script>alert('recorded');</script>";
-        echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
-    }else{
-        echo "<script>alert('please select status);</script>";
-        echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
+        if (isset($_POST['atn'])) {
+            $subject = @$_POST['course'];
+            $date = date('Y-m-d');
+            $status = @$_POST['status'];
+            $stdId = $_POST['std_id'];
+            if (!empty($subject) && !empty($status)) {
+                $q = "INSERT INTO attendances(course,status,date,student_id) VALUES('$subject','$status','$date','$stdId')";
+                mysqli_query($con, $q);
+                echo "<script>alert('recorded');</script>";
+                echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
+            } else {
+                echo "<script>alert('please select status');</script>";
+                echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
+            }
+        }
 
-    }
-}
-
-    ?>
+        ?>
 </body>
 
 </html>

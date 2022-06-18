@@ -335,7 +335,7 @@ session_start()
             while ($data = mysqli_fetch_assoc($massreport)) {
        
             ?>
-               <tbody>
+               <tbody ">
                   <tr>
                     <td><?php echo $data['student_id']; ?></td>
                     <td><?php echo $data['std_name']; ?></td>
