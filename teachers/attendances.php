@@ -268,12 +268,14 @@ td, th {
     <td>
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="attendance" >
                             <label for="">present</label>
-                            <input type="radio" name="status" value="present">
+                            <input type="radio" name="status" value="present" require>
                             <label for="">absent</label>
-                            <input type="radio" name="status" value="absent">
+                            <input type="radio" name="status" value="absent" require>
                             <input type="hidden" name="std_id" value="<?php echo $res['std_id']?>">
                             <input type="hidden" name="course">
                             <input style=" width:100px; height:30px; background-color:#34495e;color:white; border-radius:5px;" type="submit" name="atn" value="save">
+                            
+                           
 
                             
                             </form>
@@ -329,14 +331,13 @@ if(isset($_POST['atn'])) {
     $date = date('Y-m-d');
     $status = @$_POST['status'];
     $stdId = $_POST['std_id'];
-    $q = "INSERT INTO attendances(course,status,date,student_id) VALUES('$subject','$status','$date','$stdId')";
-    if($q){
-    mysqli_query($con,$q);
+    if(!empty($subject) && !empty($status)){
+        $q = "INSERT INTO attendances(course,status,date,student_id) VALUES('$subject','$status','$date','$stdId')";
+         mysqli_query($con,$q);
         echo "<script>alert('recorded');</script>";
-        
         echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
     }else{
-        echo "<script>alert('something wrong');</script>";
+        echo "<script>alert('please select status);</script>";
         echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
 
     }
