@@ -247,7 +247,7 @@ td, th {
     <td><?php echo $res['std_address'] ?></td>
     <td><?php echo $res['std_faculty'] ?></td>
     <td><button style="background-color: #0E3EDA ; width:85px; height: 30px; border-radius:5px; border:1px solid"><a style="color: white" href="updatestudent.php?id=<?php echo $res['std_id']; ?> ">update</a></button>
-         <button style="background-color: #DA1212 ; width:85px; height: 30px; border-radius:5px; border:1px solid"><a style="color: white" href="deletestudent.php?std_id=<?php echo $res['std_id']; ?> ">delete</a></button>
+         <button style="background-color: #DA1212 ; width:85px; height: 30px; border-radius:5px; border:1px solid"><a style="color: white" href="deletestudent.php?id=<?php echo $res['std_id']; ?> ">delete</a></button>
         </td>
    
        <?php
