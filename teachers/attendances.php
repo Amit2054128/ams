@@ -277,7 +277,7 @@
 
 
                             </form>
-                            <script>
+                            <!-- <script>
                                 function amit() {
                                     var subPost = document.getElementsByName("course1")[0].value;
                                     var subject = document.getElementsByName('course');
@@ -286,7 +286,7 @@
 
                                     });
                                 }
-                            </script>
+                            </script> -->
 
                         </td>
 
@@ -319,9 +319,9 @@
             })
         </script>
 
-        <?php
+    
 
-        include('db.php');
+        <!-- include('db.php');
 
 
         if (isset($_POST['atn'])) {
@@ -338,9 +338,9 @@
                 echo "<script>alert('please select status');</script>";
                 echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
             }
-        }
+        } -->
 
-        ?>
+     
 </body>
 
 </html>
