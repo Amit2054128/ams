@@ -227,6 +227,8 @@
     <h2 style="text-align: center; margin-top: 10px;">attendance <?php echo date('Y-m-d') ?></h2>
 
 
+    <form action="" method="post">
+
     <label style="text-align: center; margin-left:42%; margin-top:10px;" for="">select subject</label>
 
     <select style="text-align: center; " name="course1" onchange="amit()" id="">
@@ -250,12 +252,13 @@
             <tbody>
                 <?php
                 include 'db.php';
-                //  $selectquery = "select str.*, sr.sub_name, ar.status from attendance str , subject sr, attendances ar where  str.std_id=ar.status";
+              
                 $selectquery =  "select * from students";
 
 
                 $query = mysqli_query($con, $selectquery);
                 while ($res = mysqli_fetch_array($query)) {
+            
 
                 ?>
                     <tr>
@@ -264,42 +267,54 @@
                         <td><?php echo $res['std_email'] ?></td>
                         <td><?php echo $res['std_address'] ?></td>
                         <td>
-                            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post" name="attendance">
+                          
                                 <label for="">present</label>
-                                <input type="radio" name="status" value="present" require>
+                                <input type="radio" name="status[<?php echo $res['std_id']; ?>]" value="present">
                                 <label for="">absent</label>
-                                <input type="radio" name="status" value="absent" require>
+                                <input type="radio" name="status[<?php echo $res['std_id']; ?>]" value="absent">
                                 <input type="hidden" name="std_id" value="<?php echo $res['std_id'] ?>">
-                                <input type="hidden" name="course">
-                                <input style=" width:100px; height:30px; background-color:#34495e;color:white; border-radius:5px;" type="submit" name="atn" value="save">
+                                
+                        
 
-
-
-
-                            </form>
-                            <!-- <script>
-                                function amit() {
-                                    var subPost = document.getElementsByName("course1")[0].value;
-                                    var subject = document.getElementsByName('course');
-                                    subject.forEach(function(e, index) {
-                                        subject[index].value = subPost;
-
-                                    });
-                                }
-                            </script> -->
-
-                        </td>
-
-
-
-
-
+                            </td>
                     <?php
+                
                 }
 
                     ?>
             </tbody>
         </table>
+        <input style=" width:100px; height:30px; background-color:#34495e;color:white; border-radius:5px; margin-top: 1%; margin-left: 75%;" type="submit" name="atn" value="save">
+
+
+        </form>
+        <?php
+        include ('db.php');
+          if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $subject = $_POST['course1'];
+            $atten = $_POST['status'];
+            $date = date('Y-m-d'); 
+            foreach($atten as $key => $value){
+                if($value == "present"){
+                    $query = "insert into attendances(status, student_id,date,course) values('present','$key', '$date','$subject')";
+                     mysqli_query($con,$query);
+                     
+
+                }else{
+                    $query1 = "insert into attendances(status,student_id,date,course) values('absent','$key','$date','$subject')";
+                    mysqli_query($con,$query1);
+                    
+                    
+                }
+                
+
+            }
+            echo "<script>alert('recorded');</script>";
+            echo "<meta http-equiv=refresh content=\"0; url=attendances.php\">";
+           
+           
+          }
+          ?>
 
         </div>
         </div>
